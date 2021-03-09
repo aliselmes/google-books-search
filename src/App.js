@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
@@ -20,7 +19,12 @@ function App() {
   function handleSubmit(event) {
 
     event.preventDefault();
-    console.log(book);
+    
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=40")
+    .then(data => {
+      console.log(data.data.items);
+      setResult(data.data.items);
+    })
 
   }
 
@@ -43,6 +47,15 @@ function App() {
             </FormGroup>
             <Button type="submit" color="danger" className="mt-3">Search</Button>
           </Form>
+        </div>
+      </div>
+      <div className="row mt-5">
+        <div className="col">
+          {result.map(book =>(
+            <a href={book.volumeInfo.previewLink} target="_blank">
+              <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} key={book.id}/>
+            </a>  
+          ))}
         </div>
       </div>
     </div>
