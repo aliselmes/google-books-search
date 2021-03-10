@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import axios from 'axios';
-import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
+import { Form, Button, FormGroup, Input } from 'reactstrap';
+import Book from './components/Book';
 
 function App() {
 
@@ -28,6 +29,14 @@ function App() {
 
   }
 
+  const directory = result.map(book => {
+      return(
+        <div key={book.id} className="col-2">
+            <Book book={book}/>
+        </div>
+      );
+  });
+
   return (
     <div className="container mt-5">
       <div className="row"> 
@@ -50,13 +59,7 @@ function App() {
         </div>
       </div>
       <div className="row mt-5">
-        <div className="col">
-          {result.map(book =>(
-            <a href={book.volumeInfo.previewLink} target="_blank">
-              <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} key={book.id}/>
-            </a>  
-          ))}
-        </div>
+        {directory}
       </div>
     </div>
   );
