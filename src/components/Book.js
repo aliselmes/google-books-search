@@ -1,20 +1,22 @@
 import React from 'react';
-import { Card, CardImg, CardTitle, CardText, CardBody, Button } from 'reactstrap';
+import { Button, CardImg, CardBody, CardTitle } from 'reactstrap';
 
 function Book({book}) {
     return( 
-        <Card>
-            <CardImg top src={book.volumeInfo.imageLinks === undefined ? "" : book.volumeInfo.imageLinks.thumbnail} alt={book.title}/>
-            <CardBody>
-                <CardTitle>{book.title}</CardTitle>
-                <CardText>
-                    <p>{book.volumeInfo.authors}</p>
-                    <p>{book.volumeInfo.publisher}</p>
-                </CardText>
-                <a href={book.volumeInfo.previewLink} target="_blank"><Button>More Info</Button></a>
+        <div>
+            <div class="thumbnail">
+                <CardImg class="left" src={book.volumeInfo.imageLinks === undefined ? "" : book.volumeInfo.imageLinks.thumbnail} alt={book.title}/>
+            </div>
+            <CardBody className="right">
+                <h5>{book.volumeInfo.title}</h5>
+                <p>{book.volumeInfo.authors}</p>
+                <em><p class="author">{book.volumeInfo.publisher}</p></em>
+                <a href={book.volumeInfo.previewLink} target="_blank"><Button color="primary">More Info</Button></a>
             </CardBody>
-        </Card>
+        </div>
     );
 }
 
 export default Book;
+
+

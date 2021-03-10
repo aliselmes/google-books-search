@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import axios from 'axios';
-import { Form, Button, FormGroup, Input } from 'reactstrap';
+import { Form, Button, FormGroup, Input, Card } from 'reactstrap';
 import Book from './components/Book';
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
 
   const directory = result.map(book => {
       return(
-        <div key={book.id} className="col-2">
+        <Card id="book-card" key={book.id} className="col-12 col-md-3" fluid>
             <Book book={book}/>
-        </div>
+        </Card>
       );
   });
 
@@ -54,7 +54,7 @@ function App() {
                 onChange={handleChange} 
               />
             </FormGroup>
-            <Button type="submit" color="danger" className="mt-3">Search</Button>
+            <Button type="submit" color="primary" className="mt-3">Search</Button>
           </Form>
         </div>
       </div>
