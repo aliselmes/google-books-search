@@ -8,7 +8,9 @@ function App() {
 
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
-  const [apiKey, setApiKey] = useState("AIzaSyAQExnFmul1cmlhA8WHA9MYPQ79TA68WMQ");
+  const [apiKey] = useState("AIzaSyAQExnFmul1cmlhA8WHA9MYPQ79TA68WMQ");
+  const [hasError, setHasError] = useState(false);
+
 
   function handleChange(event) {
 
@@ -20,23 +22,31 @@ function App() {
   function handleSubmit(event) {
 
     event.preventDefault();
+
+    if (!book) {
+      alert("Please enter something in the search bar!")
+    }
     
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=40")
-    .then(data => {
-      console.log(data.data.items);
-      setResult(data.data.items);
-    })
+      axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=40")
+      .then(data => {
+        console.log(data.data.items);
+        setResult(data.data.items);
+      })
+      .catch(error => {
+        console.log(error);
+        setHasError(true)
+      })
 
   }
 
-  const directory = result.map(book => {
+  const directory = result && result.map(book => {
       return(
         <Card id="book-card" key={book.id} className="col-12 col-md-3" fluid>
             <Book book={book}/>
         </Card>
       );
   });
-
+  
   return (
     <div className="container mt-5">
       <div className="row"> 
@@ -58,11 +68,13 @@ function App() {
           </Form>
         </div>
       </div>
+
       <div className="row mt-5">
-        {directory}
+        {!directory ? <h3>No Books Found! Please try a different search.</h3> : directory}
       </div>
     </div>
   );
 }
+
 
 export default App;
