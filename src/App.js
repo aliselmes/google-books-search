@@ -34,14 +34,14 @@ function App() {
       })
       .catch(error => {
         console.log(error);
-        setHasError(true)
+        setHasError(true);
       })
 
   }
 
   const directory = result && result.map(book => {
       return(
-        <Card id="book-card" key={book.id} className="col-12 col-md-3" fluid>
+        <Card id="book-card" key={book.id} className="col-12 col-md-3">
             <Book book={book}/>
         </Card>
       );
@@ -50,21 +50,21 @@ function App() {
   return (
     <div className="container mt-5">
       <div className="row"> 
-        <div className="col">
-          <h1>Book Finder</h1>
+        <div className="col text-center" id="searchbar">
+          <h1 className="mb-4">Book Finder</h1>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Input 
                 type="text" 
                 name="text" 
                 id="text" 
-                className="input-control"  
+                className="input-control "  
                 placeholder="Search for Books" 
                 autoComplete="off" 
                 onChange={handleChange} 
               />
             </FormGroup>
-            <Button type="submit" color="primary" className="mt-3">Search</Button>
+            <Button type="submit" color="danger" className="mt-3">Search</Button>
           </Form>
         </div>
       </div>

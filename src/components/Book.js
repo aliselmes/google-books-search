@@ -11,7 +11,7 @@ function Book({book}) {
                 <h5>{book.volumeInfo.title}</h5>
                 <p>{book.volumeInfo.authors}</p>
                 <em><p className="author">{book.volumeInfo.publisher}</p></em>
-                <a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer"><Button color="primary">More Info</Button></a>
+                <a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer"><Button color="primary">More...</Button></a>
             </CardBody>
         </div>
     );
