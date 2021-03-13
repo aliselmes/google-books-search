@@ -1,4 +1,4 @@
-# Google Book Search App
+# Book Finder App
 
 ## Overview
 
@@ -28,7 +28,7 @@ This app was created for Chingu Voyage 29 pre-work. It pulls data from the [Goog
 - Bootstrap
 - Axios
 
-###ToDo List
+### ToDo List
 
 ###### Features to be added:
 - Ability to add a book to Favorites/Bookmark a book.
