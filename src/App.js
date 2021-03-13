@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { Form, Button, FormGroup, Input, Card } from 'reactstrap';
@@ -9,7 +9,7 @@ function App() {
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
   const [apiKey] = useState("AIzaSyAQExnFmul1cmlhA8WHA9MYPQ79TA68WMQ");
-  const [hasError, setHasError] = useState(false);
+
 
 
   function handleChange(event) {
@@ -29,12 +29,15 @@ function App() {
     
       axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=40")
       .then(data => {
-        console.log(data.data.items);
-        setResult(data.data.items);
+        if (!data) {
+          throw new Error(`HTTP error! status: ${data.statusCode}`);
+        } else {
+          console.log(data.data.items);
+          setResult(data.data.items);
+        }
       })
       .catch(error => {
-        console.log(error);
-        setHasError(true);
+        console.log('There has been a problem with your GET operation: ' + error.message);
       })
 
   }
@@ -55,12 +58,11 @@ function App() {
           <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Input 
-                type="text" 
-                name="text" 
-                id="text" 
-                className="input-control "  
+                type="search" 
+                name="search" 
+                id="search" 
+                className="form-control"  
                 placeholder="Search for Books" 
-                autoComplete="off" 
                 onChange={handleChange} 
               />
             </FormGroup>
