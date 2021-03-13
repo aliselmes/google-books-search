@@ -21,9 +21,6 @@ h3 {
 
 #book-card {
   position : relative;
-	height: 250px;
-	width: 500px;
-	margin : 50px auto;
 	background-color : #FFF;
 	-webkit-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
@@ -33,56 +30,16 @@ h3 {
 }
 
 #book-card:hover {
-  background-color : #e6e6ff;
+  color : white ;
+  background-color: #85C1E9; 
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.75);
 }
 
-.thumbnail {
-	float : left;
-	position : relative ;
-	left : 30px;
-	top : -30px;
+.left {
+  position : relative;
 	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 	box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
   overflow: hidden;
-}
-
-img .left {
-  position: absolute;
-	left: 50%;
-	top: 50%;
-	height: auto;
-	width: 100%;
-	-webkit-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-}
-
-.right {
-  margin-top: 20px;
-  margin-left : 200px;
-	margin-right : 20px; 
-}
-
-h5 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-
-
-@media only screen and (max-width: 400px) {
-
-    .right p, h5 {
-      display: none;
-    }
-
-}
-
-@media only screen and (max-width: 1000px){
-  #text {
-    width: 100%;
-  }
+  transform: translateY(-25px);
 }

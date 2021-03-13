@@ -41,14 +41,14 @@ function App() {
 
   const directory = result && result.map(book => {
       return(
-        <Card id="book-card" key={book.id} className="col-12 col-md-3">
+        <Card id="book-card" key={book.id} className="col-12 col-lg-4 m-3 ">
             <Book book={book}/>
         </Card>
       );
   });
   
   return (
-    <div className="container mt-5">
+    <div className="container pt-5 ml-0 mr-0 justify-content-center">
       <div className="row"> 
         <div className="col text-center" id="searchbar">
           <h1 className="mb-4">Book Finder</h1>
@@ -64,12 +64,12 @@ function App() {
                 onChange={handleChange} 
               />
             </FormGroup>
-            <Button type="submit" color="danger" className="mt-3">Search</Button>
+            <Button type="submit" color="primary" className="mt-3">Search</Button>
           </Form>
         </div>
       </div>
 
-      <div className="row mt-5">
+      <div className="row mt-5 justify-content-center">
         {!directory ? <h3>No Books Found! Please try a different search.</h3> : directory}
       </div>
     </div>
