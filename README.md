@@ -1,7 +1,7 @@
 # Book Finder App
 
 ![site preview image]
-(https://google-book-search.netlify.app/)
+(https://github.com/aliselmes/google-books-search/public/screen_shot.png?raw=true)
 
 ## Overview
 
