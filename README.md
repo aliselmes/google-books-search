@@ -1,5 +1,8 @@
 # Book Finder App
 
+![site preview image]
+(https://google-book-search.netlify.app/)
+
 ## Overview
 
 This app was created for Chingu Voyage 29 pre-work. It pulls data from the [Google Books API](https://developers.google.com/books).
