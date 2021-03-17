@@ -8,14 +8,14 @@ function App() {
 
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
-  const [apiKey] = useState("AIzaSyAQExnFmul1cmlhA8WHA9MYPQ79TA68WMQ");
+  const [apiKey] = useState(process.env.REACT_APP_API_KEY);
 
 
 
   function handleChange(event) {
 
     const book = event.target.value;
-    setBook(book);
+    setBook(book); 
 
   }
 
@@ -37,7 +37,7 @@ function App() {
         }
       })
       .catch(error => {
-        console.log('There has been a problem with your GET operation: ' + error.message);
+        console.log('There has been a problem with your GET operation: ' + error.message);  
       })
 
   }
