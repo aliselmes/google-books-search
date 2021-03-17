@@ -51,7 +51,7 @@ function App() {
   });
   
   return (
-    <div className="container pt-5 ml-0 mr-0 justify-content-center">
+    <div className="container pt-5 justify-content-center">
       <div className="row"> 
         <div className="col text-center" id="searchbar">
           <h1 className="mb-4">Book Finder</h1>
@@ -71,7 +71,7 @@ function App() {
         </div>
       </div>
 
-      <div className="row mt-5 justify-content-center">
+      <div className="row mt-5 mx-1 mx-sm-0 justify-content-center">
         {!directory ? <h3>No Books Found! Please try a different search.</h3> : directory}
       </div>
     </div>
@@ -79,4 +79,4 @@ function App() {
 }
 
 
-export default App;
+export default App; 
