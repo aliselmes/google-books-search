@@ -1,7 +1,7 @@
 # Book Finder App
 
 ![site preview image]
-(https://github.com/aliselmes/google-books-search/public/screen_shot.png?raw=true)
+(/public/screen_shot.png)
 
 ## Overview
 
