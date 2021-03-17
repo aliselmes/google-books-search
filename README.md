@@ -1,7 +1,6 @@
 # Book Finder App
 
-![site preview image]
-(/public/screen_shot.png)
+![Screen Shot 2021-03-16 at 7 52 43 PM](https://user-images.githubusercontent.com/31051877/111398777-158f6b80-8692-11eb-8fe7-b0da111b1ee2.png)
 
 ## Overview
 
